@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Environment Variables (Secrets)
+.env
+
+# Database
+*.db
+*.sqlite3
+instance/
+
+# IDE settings
+.vscode/
+.idea/
+
+# Temporary files from testing
+test_output.pdf
+models_list.txt
+models_ascii.txt

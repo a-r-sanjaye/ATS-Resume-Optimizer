@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AI Resume Analyzer</title>
+    <style>
+        body {
+            background: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        input[type="file"],
+        textarea,
+        button {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+
+        textarea {
+            background: #222;
+            color: white;
+            border: 1px solid #444;
+        }
+
+        button {
+            background: #1E90FF;
+            color: #fff;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #0b60b8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>AI Resume Analyzer</h2>
+        <div style="text-align:center; margin-bottom: 20px;">
+            <a href="/history" style="color:#1E90FF; text-decoration:none; font-weight:bold;">🕒 View Past Analyses</a>
+        </div>
+        <p style="text-align:center;">Upload your resume and paste the job description.</p>
+        <form method="POST" enctype="multipart/form-data">
+            <label>Resume (PDF/DOCX):</label>
+            <input type="file" name="resume" required>
+            <label>Job Description:</label>
+            <textarea name="job_desc" rows="8" placeholder="Paste Job Description here..." required></textarea>
+            <button type="submit">Analyze Resume</button>
+        </form>
+    </div>
+</body>
+
+</html>

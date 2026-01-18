@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Analysis History</title>
+    <style>
+        body {
+            background: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #1E90FF;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+
+        th {
+            color: #1E90FF;
+        }
+
+        tr:hover {
+            background-color: #111;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #1E90FF;
+            text-decoration: underline;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 15px;
+            background: #1E90FF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #0b60b8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="/" class="btn">⬅ Analyze New Resume</a>
+        <h2>Past Analysis History</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Date</th>
+                    <th>Resume File</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for analysis in analyses %}
+                <tr>
+                    <td>{{ analysis.id }}</td>
+                    <td>{{ analysis.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                    <td>{{ analysis.resume_filename }}</td>
+                    <td>
+                        <a href="/history/{{ analysis.id }}">View Result</a> |
+                        <a href="/download/{{ analysis.id }}">Download PDF</a>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="4" style="text-align:center;">No history found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
